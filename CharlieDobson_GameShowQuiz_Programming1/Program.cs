@@ -13,10 +13,42 @@ namespace CharlieDobson_GameShowQuiz_Programming1
         static int totalQuestion;
         static int totalCorrectAnswers;
 
+        static bool isPlaying;
+        static bool isPlayingAgain;
+
+        static string[] questions = { };
+        static string[,] answers = { { } };
+
         //╔╗═╚╝║
         static void Main(string[] args)
         {
             Intro();
+            Console.Clear();
+            isPlaying = true;
+            while (isPlaying == true)
+            {
+                totalCorrectAnswers = 0;
+
+                Questions();
+
+                while (isPlayingAgain == false)
+                {
+                    Console.WriteLine("PLAY AGAIN? Y/N");
+                    string input = Console.ReadLine();
+
+                    if (input == "Y" || input == "y")
+                    {
+                        isPlayingAgain = true;
+                        isPlaying = true;
+                    }
+                    if (input == "N" || input == "n")
+                    {
+                        isPlayingAgain = true;
+                        isPlaying = false;
+                    }
+                }
+
+            }
         }
 
         static void Intro()
@@ -43,6 +75,14 @@ namespace CharlieDobson_GameShowQuiz_Programming1
             Console.Write("Your name: ");
             playerName = Console.ReadLine();
 
+        }
+
+        static void Questions()
+        {
+            for(int i = 0; i < 10; i++)
+            {
+
+            }
         }
     }
 }
