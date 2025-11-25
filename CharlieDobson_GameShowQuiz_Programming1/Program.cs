@@ -12,6 +12,8 @@ namespace CharlieDobson_GameShowQuiz_Programming1
         static int curQuestion;
         static int totalQuestion;
         static int totalCorrectAnswers;
+
+        //╔╗═╚╝║
         static void Main(string[] args)
         {
             Intro();
@@ -19,15 +21,28 @@ namespace CharlieDobson_GameShowQuiz_Programming1
 
         static void Intro()
         {
+            Console.Write("╔═════════════════════════════════════╗\n");
+            Console.Write("║");
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.BackgroundColor = ConsoleColor.White;
 
-            Console.WriteLine("WELCOME TO MY PROGRAMMING QUIZ SHOW! PLACE YOUR NAME BELOW!");
+            Console.Write("WELCOME TO MY PROGRAMMING QUIZ SHOW!");
+            Console.ResetColor();
+            Console.Write(" ║ \n");
+            Console.Write("║");
+
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.BackgroundColor = ConsoleColor.White;
+
+            Console.Write("INSERT YOUR NAME BELOW!");
             Console.ResetColor();
 
+            Console.Write("              ║ \n");
+            
+            Console.Write("╚═════════════════════════════════════╝\n");
             Console.Write("Your name: ");
-
             playerName = Console.ReadLine();
+
         }
     }
 }
