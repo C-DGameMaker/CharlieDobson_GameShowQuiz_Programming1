@@ -9,7 +9,7 @@ namespace CharlieDobson_GameShowQuiz_Programming1
 {
     internal class Program
     {
-        static string playerName = "";
+        static string playerName = "Charlie";
         static float totalQuestionAnswered = 1;
         static float totalCorrectAnswers;
 
@@ -18,6 +18,8 @@ namespace CharlieDobson_GameShowQuiz_Programming1
         static bool questionAnswer = false;
 
         static char input = ' ';
+
+        static ConsoleColor[] answerColor = {ConsoleColor.Blue, ConsoleColor.Red, ConsoleColor.Green, ConsoleColor.Yellow };
 
         static string[] questions = {"What color is my shirt?", "What color is the sky?", "..."};
         static char[] acceptableAnswer = {'1', '2', '3', '4' };
@@ -107,20 +109,25 @@ namespace CharlieDobson_GameShowQuiz_Programming1
                 {
                     HUD();
                     Console.Write("═════════════════════════════════════════\n");
-                    Console.Write($"Question {i + 1}/{questions.Length}: {questions[i]} \n");
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Write($"  Question {i + 1}/{questions.Length}: {questions[i]}  \n");
                     Console.ResetColor();
                     Console.WriteLine("═════════════════════════════════════════");
                     for(int j = 0; j < answers.GetLength(1); j++)
                     {
+                        Console.ForegroundColor = answerColor[j];
                         Console.Write("           ");
                         Console.Write(answers[i, j]);
                         Console.Write("\n");
+                        Console.ResetColor();
                     }
                     Console.Write("═════════════════════════════════════════\n");
                     Console.WriteLine("What is the answer?");
                     Console.Write("Your answer: ");
 
                     input = Console.ReadKey().KeyChar;
+                    Thread.Sleep(2500);
                     if (!acceptableAnswer.Contains((char)(input)))
                     {
                         Console.Write("PLEASE PUT ACCEPTABLE ANSWER!");
@@ -134,8 +141,10 @@ namespace CharlieDobson_GameShowQuiz_Programming1
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("CORRECT!");
-                        totalCorrectAnswers++;
                         Console.ResetColor();
+                        HUD();
+                        totalCorrectAnswers++;
+                        
                     }
                     else
                     {
@@ -143,6 +152,8 @@ namespace CharlieDobson_GameShowQuiz_Programming1
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("INCORRECT!");
                         Console.ResetColor();
+                        HUD();
+                        
                     }
 
 
@@ -162,7 +173,10 @@ namespace CharlieDobson_GameShowQuiz_Programming1
         static void HUD()
         {
             Console.Write("═════════════════════════════════════════\n");
-            Console.WriteLine($"Player Name: {playerName}     Questions right {totalCorrectAnswers/totalQuestionAnswered * 100 }%");
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine($"Player Name: {playerName}  Questions right {totalCorrectAnswers/totalQuestionAnswered * 100 }%");
+            Console.ResetColor();
             Console.Write("═════════════════════════════════════════\n");
         }
 
