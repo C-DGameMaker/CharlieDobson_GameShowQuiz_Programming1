@@ -10,9 +10,8 @@ namespace CharlieDobson_GameShowQuiz_Programming1
     internal class Program
     {
         static string playerName = "";
-        static int curQuestion;
-        static int totalQuestion;
-        static int totalCorrectAnswers;
+        static float totalQuestionAnswered = 1;
+        static float totalCorrectAnswers;
 
         static bool isPlaying;
         static bool isPlayingAgain;
@@ -44,6 +43,10 @@ namespace CharlieDobson_GameShowQuiz_Programming1
                 totalCorrectAnswers = 0;
 
                 Questions();
+                Console.Clear();
+                HUD();
+
+                Console.WriteLine($"Out of {questions.Length} questions, you got {totalCorrectAnswers} right!");
 
                 while (isPlayingAgain == false)
                 {
@@ -54,6 +57,7 @@ namespace CharlieDobson_GameShowQuiz_Programming1
                     {
                         isPlayingAgain = true;
                         isPlaying = true;
+                        Console.Clear();
                     }
                     if (input == "N" || input == "n")
                     {
@@ -101,19 +105,18 @@ namespace CharlieDobson_GameShowQuiz_Programming1
                 questionAnswer = false;
                 while(questionAnswer == false)
                 {
-                    Console.Write("╔═════════════════════════════════════╗\n");
-                    Console.Write("║");
-                    Console.Write($"Question {i + 1}/{questions.Length}: {questions[i]}");
+                    HUD();
+                    Console.Write("═════════════════════════════════════════\n");
+                    Console.Write($"Question {i + 1}/{questions.Length}: {questions[i]} \n");
                     Console.ResetColor();
-                    Console.Write("║ \n");
-                    Console.WriteLine("║-------------------------------------║");
+                    Console.WriteLine("═════════════════════════════════════════");
                     for(int j = 0; j < answers.GetLength(1); j++)
                     {
-                        Console.Write("║    ");
+                        Console.Write("           ");
                         Console.Write(answers[i, j]);
-                        Console.Write("                          ║ \n");
+                        Console.Write("\n");
                     }
-                    Console.Write("╚═════════════════════════════════════╝\n");
+                    Console.Write("═════════════════════════════════════════\n");
                     Console.WriteLine("What is the answer?");
                     Console.Write("Your answer: ");
 
@@ -143,13 +146,26 @@ namespace CharlieDobson_GameShowQuiz_Programming1
                     }
 
 
-
-
+                    if(i > 0)
+                    {
+                        totalQuestionAnswered++;
+                    }
+                    
                     Console.ReadKey(true);
+                    Console.Clear();
                     questionAnswer = true;
                 }
                 
             }
         }
+
+        static void HUD()
+        {
+            Console.Write("═════════════════════════════════════════\n");
+            Console.WriteLine($"Player Name: {playerName}     Questions right {totalCorrectAnswers/totalQuestionAnswered * 100 }%");
+            Console.Write("═════════════════════════════════════════\n");
+        }
+
+        
     }
 }
