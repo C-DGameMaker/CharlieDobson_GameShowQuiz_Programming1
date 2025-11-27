@@ -9,9 +9,11 @@ namespace CharlieDobson_GameShowQuiz_Programming1
 {
     internal class Program
     {
-        static string playerName = "Atlas";
+        static string playerName = "Cookie";
         static float totalQuestionAnswered = 1;
         static float totalCorrectAnswers;
+
+        static string title = " .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. \r\n| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |\r\n| |  _________   | || |  _______     | || |     _____    | || | ____   ____  | || |     _____    | || |      __      | |\r\n| | |  _   _  |  | || | |_   __ \\    | || |    |_   _|   | || ||_  _| |_  _| | || |    |_   _|   | || |     /  \\     | |\r\n| | |_/ | | \\_|  | || |   | |__) |   | || |      | |     | || |  \\ \\   / /   | || |      | |     | || |    / /\\ \\    | |\r\n| |     | |      | || |   |  __ /    | || |      | |     | || |   \\ \\ / /    | || |      | |     | || |   / ____ \\   | |\r\n| |    _| |_     | || |  _| |  \\ \\_  | || |     _| |_    | || |    \\ ' /     | || |     _| |_    | || | _/ /    \\ \\_ | |\r\n| |   |_____|    | || | |____| |___| | || |    |_____|   | || |     \\_/      | || |    |_____|   | || ||____|  |____|| |\r\n| |              | || |              | || |              | || |              | || |              | || |              | |\r\n| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |\r\n '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' \r\n                     .----------------.  .----------------.  .----------------.  .----------------.                     \r\n                    | .--------------. || .--------------. || .--------------. || .--------------. |                    \r\n                    | |    ______    | || |      __      | || | ____    ____ | || |  _________   | |                    \r\n                    | |  .' ___  |   | || |     /  \\     | || ||_   \\  /   _|| || | |_   ___  |  | |                    \r\n                    | | / .'   \\_|   | || |    / /\\ \\    | || |  |   \\/   |  | || |   | |_  \\_|  | |                    \r\n                    | | | |    ____  | || |   / ____ \\   | || |  | |\\  /| |  | || |   |  _|  _   | |                    \r\n                    | | \\ `.___]  _| | || | _/ /    \\ \\_ | || | _| |_\\/_| |_ | || |  _| |___/ |  | |                    \r\n                    | |  `._____.'   | || ||____|  |____|| || ||_____||_____|| || | |_________|  | |                    \r\n                    | |              | || |              | || |              | || |              | |                    \r\n                    | '--------------' || '--------------' || '--------------' || '--------------' |                    \r\n                     '----------------'  '----------------'  '----------------'  '----------------'                     ";
 
         static bool isPlaying;
         static bool isPlayingAgain;
@@ -19,35 +21,46 @@ namespace CharlieDobson_GameShowQuiz_Programming1
 
         static char input = ' ';
 
-        static ConsoleColor[] answerColor = {ConsoleColor.Blue, ConsoleColor.Red, ConsoleColor.Green, ConsoleColor.Yellow };
+        static ConsoleColor[] answerColor = {ConsoleColor.Blue, ConsoleColor.Red, ConsoleColor.Green, ConsoleColor.Yellow};
 
-        static string[] questions = {"What color is my shirt?", "What color is the sky?", "...", "Can a MatchBox?"};
-        static char[] acceptableAnswer = {'1', '2', '3', '4' };
-        static string[,] answers = 
-        { 
-            {"[1] Green", "[2] Gray", "[3] Blue", "[4] Red"},
-            {"[1] Green", "[2] Gray", "[3] Blue", "[4] Red"},
+        static string[] questions = 
+        {
+            "What varible type is used to store whole numbers?", 
+            "What Varible stores either true or false", 
+            "...", 
+            "Can a MatchBox?", 
+            "How do you set the text color?", 
+            "How do you set background color?",
+        };
+
+        static string[,] answers =
+       {
+            {"[1] Int", "[2] Double", "[3] Float", "[4] Char"},
+            {"[1] Float", "[2] Char", "[3] String", "[4] Bool"},
             {"[1] Green", "[2] Gray", "[3] Blue", "[4] Red"},
             {"[1] Yes", "[2] No", "[3] No but a Tin Can", "[4] Yes, One beat Mike Tyson"},
-            {"[1] Green", "[2] Gray", "[3] Blue", "[4] Red"},
-            {"[1] Green", "[2] Gray", "[3] Blue", "[4] Red"},
+            {"[1] Console.SetTextColor", "[2] Console.ForegroundColor", "[3] Console.SetColor", "[4] You cannot change the text color."},
+            {"[1] Console.BackgroundColor", "[2] Console.SetBackColor", "[3] Console.BackgrundColor", "[4] You cannot change the background color"},
             {"[1] Green", "[2] Gray", "[3] Blue", "[4] Red"},
             {"[1] Green", "[2] Gray", "[3] Blue", "[4] Red"},
             {"[1] Green", "[2] Gray", "[3] Blue", "[4] Red"},
             {"[1] Green", "[2] Gray", "[3] Blue", "[4] Red"},
         };
 
-        static char[] actualAnswers = {'1', '1', '1', '3'};
+        static char[] acceptableAnswer = {'1', '2', '3', '4' };
+       
+
+        static char[] actualAnswers = {'1', '4', '2', '3', '2', '1'};
         //╔╗═╚╝║
         static void Main(string[] args)
         {
-            //Intro();
+            Intro();
             Console.Clear();
             isPlaying = true;
             while (isPlaying == true)
             {
-                totalCorrectAnswers = 0;
-                totalQuestionAnswered = 1;
+                //totalCorrectAnswers = 0;
+                //totalQuestionAnswered = 1;
 
                 Questions();
                 Console.Clear();
@@ -58,6 +71,7 @@ namespace CharlieDobson_GameShowQuiz_Programming1
                 Console.WriteLine($" you got {totalCorrectAnswers} right!");
                 Thread.Sleep(2000);
                 Rank();
+                Console.ReadKey(true);
 
                 Console.WriteLine("        ");
                 EasterEgg();
@@ -92,25 +106,21 @@ namespace CharlieDobson_GameShowQuiz_Programming1
 
         static void Intro()
         {
-            Console.Write("╔═════════════════════════════════════╗\n");
-            Console.Write("║");
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.BackgroundColor = ConsoleColor.White;
-
-            Console.Write("WELCOME TO MY PROGRAMMING QUIZ SHOW!");
-            Console.ResetColor();
-            Console.Write(" ║ \n");
-            Console.Write("║");
+            Console.Write("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════\n");
 
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.BackgroundColor = ConsoleColor.White;
 
-            Console.Write("INSERT YOUR NAME BELOW!");
+            Console.Write(title);
             Console.ResetColor();
 
-            Console.Write("              ║ \n");
-            
-            Console.Write("╚═════════════════════════════════════╝\n");
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(45,23);
+            Console.Write("INSERT YOUR NAME BELOW!\n");
+            Console.ResetColor();
+
+            Console.Write("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════\n");
             Console.Write("Your name: ");
             playerName = Console.ReadLine();
 
