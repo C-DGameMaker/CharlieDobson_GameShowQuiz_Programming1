@@ -33,14 +33,14 @@ namespace CharlieDobson_GameShowQuiz_Programming1
         {
             "What varible type is used to store whole numbers?", 
             "What Varible stores either true or false", 
-            "...", 
+            "What kind of programming language is this program made in? (hint: its the same one we've been using)", 
             "Can a MatchBox?", //This is in reference to the impossible quiz, spefically off of wordplay
             "How do you set the text color?", 
             "How do you set background color?",
-            "...",
-            "...",
+            "How to read from a text file?",
+            "In unity and using code, how can you make an object move back and forth?",
             "Who is NOT a survivor of Super Danganronpa 2: Goodbye Despair?", //More about this in the answer
-            "..."
+            "How to make multiple methods with the same name?"
         };
 
         //The written answers! Its a 2d array as it prints them in order. 
@@ -48,21 +48,21 @@ namespace CharlieDobson_GameShowQuiz_Programming1
        {
             {"[1] Int", "[2] Double", "[3] Float", "[4] Char"},
             {"[1] Float", "[2] Char", "[3] String", "[4] Bool"},
-            {"[1] Green", "[2] Gray", "[3] Blue", "[4] Red"},
+            {"[1] Java", "[2] C#", "[3] BASIC", "[4] Pascal"},
             {"[1] Yes", "[2] No", "[3] No but a Tin Can", "[4] Yes, One beat Mike Tyson"}, //Which is why the answer is 3, because a Tin can box. Get it? When it was mentioned for two joke questions I wanted to do this
             {"[1] Console.SetTextColor", "[2] Console.ForegroundColor", "[3] Console.SetColor", "[4] You cannot change the text color."}, 
             {"[1] Console.BackgroundColor", "[2] Console.SetBackColor", "[3] Console.BackgrundColor", "[4] You cannot change the background color"},
-            {"[1] Green", "[2] Gray", "[3] Blue", "[4] Red"},
-            {"[1] Green", "[2] Gray", "[3] Blue", "[4] Red"},
+            {"[1] You can't", "[2] Console.File(Path)", "[3] File.ReadAllLine(Path)", "[4] Console.ReadFile(path)"},
+            {"[1] SmoothDamp", "[2] Lerp", "[3] Transform.Translate", "[4] All of the above"},
             {"[1] Hajime", "[2] Fuyuhiko", "[3] Sonia", "[4] Peko"}, //While this techincal answer is false, as its reveal the entire game was a sim and shit, Peko still died in game so im counting her here
-            {"[1] Green", "[2] Gray", "[3] Blue", "[4] Red"},
+            {"[1] You don't need to change anything", "[2] Change the requirements for the method", "[3] All of the answers", "[4] You Can't"},
         };
 
         //A char array of the 4 acceptable answers. NGL I was inspired to do this because of the slowshooter because it made sense like this to me
         static char[] acceptableAnswer = {'1', '2', '3', '4' };
        
         //Another array of chars, but these are the actual answers. 
-        static char[] actualAnswers = {'1', '4', '2', '3', '2', '1', '1', '1', '4', '1'};
+        static char[] actualAnswers = {'1', '4', '2', '3', '2', '1', '3', '4', '4', '2'};
         
         static void Main(string[] args)
         {
