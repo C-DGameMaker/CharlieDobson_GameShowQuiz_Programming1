@@ -55,7 +55,7 @@ namespace CharlieDobson_GameShowQuiz_Programming1
             {"[1] You can't", "[2] Console.File(Path)", "[3] File.ReadAllLine(Path)", "[4] Console.ReadFile(path)"},
             {"[1] SmoothDamp", "[2] Lerp", "[3] Transform.Translate", "[4] All of the above"},
             {"[1] Hajime", "[2] Fuyuhiko", "[3] Sonia", "[4] Peko"}, //While this techincal answer is false, as its reveal the entire game was a sim and shit, Peko still died in game so im counting her here
-            {"[1] You don't need to change anything", "[2] Change the requirements for the method", "[3] All of the answers", "[4] You Can't"},
+            {"[1] You don't need to change anything", "[2] Change the parameters for the method", "[3] Both 1 and 2", "[4] You Can't"},
         };
 
         //A char array of the 4 acceptable answers. NGL I was inspired to do this because of the slowshooter because it made sense like this to me
